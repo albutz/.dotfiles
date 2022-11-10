@@ -118,3 +118,4 @@ fi
 
 # Custom aliases
 alias config='/usr/bin/git --git-dir=/home/alex/.cfg/ --work-tree=/home/alex'
+alias vim='nvim'
