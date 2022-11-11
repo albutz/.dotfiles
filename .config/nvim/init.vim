@@ -20,3 +20,16 @@ set colorcolumn=80
 set signcolumn=yes
 set noshowmode
 set completeopt=menu,menuone,noselect
+
+call plug#begin('~/.local/share/nvim/site/autoload')
+" Color scheme
+Plug 'folke/tokyonight.nvim', { 'branch': 'main' }
+call plug#end()
+
+" Apply color scheme
+let g:tokyonight_style = "night"
+colorscheme tokyonight
+hi Normal ctermbg=NONE guibg=NONE
+
+" Treesitter
+luafile ~/.config/nvim/lua/treesitter.lua
