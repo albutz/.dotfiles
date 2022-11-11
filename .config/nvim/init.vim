@@ -24,6 +24,7 @@ set completeopt=menu,menuone,noselect
 call plug#begin('~/.local/share/nvim/site/autoload')
 " Color scheme
 Plug 'folke/tokyonight.nvim', { 'branch': 'main' }
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 call plug#end()
 
 " Apply color scheme
