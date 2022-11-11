@@ -108,6 +108,10 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
+# Default editor
+export EDITOR=/usr/bin/nvim
+export VISUAL=/usr/bin/nvim
+
 # Custom aliases
 alias config='/usr/bin/git --git-dir=/home/alex/.cfg/ --work-tree=/home/alex'
 alias vim='nvim'
