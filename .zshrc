@@ -115,6 +115,9 @@ export VISUAL=/usr/bin/nvim
 # Custom aliases
 alias config='/usr/bin/git --git-dir=/home/alex/.cfg/ --work-tree=/home/alex'
 alias vim='nvim'
+alias v='fd --type f --hidden --exclude .git | fzf-tmux -p --reverse | xargs nvim'
+alias sp='cd $(fd --type d ".*" ~/projects | fzf)'
+alias sc='cd $(fd --type d ".*" ~/.config | fzf)'
 
 # pyenv
 export PYENV_ROOT="$HOME/.pyenv"
