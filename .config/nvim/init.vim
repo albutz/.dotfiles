@@ -21,10 +21,16 @@ set signcolumn=yes
 set noshowmode
 set completeopt=menu,menuone,noselect
 
+let mapleader = " "
+
+" Plugins
 call plug#begin('~/.local/share/nvim/site/autoload')
 " Color scheme
 Plug 'folke/tokyonight.nvim', { 'branch': 'main' }
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+Plug 'preservim/nerdtree'
+Plug 'Xuyuanp/nerdtree-git-plugin'
+Plug 'ryanoasis/vim-devicons'
 call plug#end()
 
 " Apply color scheme
@@ -34,3 +40,6 @@ hi Normal ctermbg=NONE guibg=NONE
 
 " Treesitter
 luafile ~/.config/nvim/lua/treesitter.lua
+
+" NERDTree
+nnoremap <leader>n :NERDTreeToggle<CR>
