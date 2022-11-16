@@ -25,9 +25,11 @@ let mapleader = " "
 
 " Plugins
 call plug#begin('~/.local/share/nvim/site/autoload')
-" Color scheme
+" Styling
 Plug 'folke/tokyonight.nvim', { 'branch': 'main' }
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 " NERDTree
 Plug 'preservim/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
@@ -39,9 +41,10 @@ Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'cmake -S. -Bbuild -DCM
 call plug#end()
 
 " Apply color scheme
-let g:tokyonight_style = "night"
+let g:tokyonight_style = 'night'
 colorscheme tokyonight
 hi Normal ctermbg=NONE guibg=NONE
+let g:airline_theme = 'deus'
 
 " Treesitter
 luafile ~/.config/nvim/lua/treesitter.lua
