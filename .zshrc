@@ -74,6 +74,7 @@ plugins=(
     ubuntu
     git
     zsh-autosuggestions
+    zsh-autocomplete
     zsh-syntax-highlighting
     docker
     poetry
