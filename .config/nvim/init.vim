@@ -46,6 +46,8 @@ Plug 'hrsh7th/cmp-cmdline'
 Plug 'hrsh7th/nvim-cmp'
 Plug 'L3MON4D3/LuaSnip'
 Plug 'saadparwaiz1/cmp_luasnip'
+" REPL
+Plug 'jpalardy/vim-slime'
 call plug#end()
 
 set completeopt=menu,menuone,noselect
@@ -69,3 +71,8 @@ nnoremap <leader>dl <cmd>Telescope diagnostics<cr>
 
 " LSP
 luafile ~/.config/nvim/lua/lsp-config.lua
+
+" REPL
+let g:slime_target = "tmux"
+let g:slime_bracketed_paste = 1
+let g:slime_default_config = { "socket_name": "default", "target_pane": "{right-of}" }
