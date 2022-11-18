@@ -1,5 +1,5 @@
 -- Language servers
-local servers = {'pyright'}
+local servers = {'pyright', 'gopls'}
 
 local capabilities = require('cmp_nvim_lsp').default_capabilities()
 

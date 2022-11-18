@@ -65,6 +65,7 @@ nnoremap <leader>n <cmd>NERDTreeToggle<cr>
 " Telescope
 nnoremap <leader>ff <cmd>Telescope find_files<cr>
 nnoremap <leader>fg <cmd>Telescope live_grep<cr>
+nnoremap <leader>dl <cmd>Telescope diagnostics<cr>
 
 " LSP
 luafile ~/.config/nvim/lua/lsp-config.lua
