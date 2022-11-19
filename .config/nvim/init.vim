@@ -48,6 +48,10 @@ Plug 'L3MON4D3/LuaSnip'
 Plug 'saadparwaiz1/cmp_luasnip'
 " REPL
 Plug 'jpalardy/vim-slime'
+" Debugger
+Plug 'mfussenegger/nvim-dap'
+Plug 'rcarriga/nvim-dap-ui'
+Plug 'mfussenegger/nvim-dap-python'
 call plug#end()
 
 set completeopt=menu,menuone,noselect
@@ -76,3 +80,32 @@ luafile ~/.config/nvim/lua/lsp-config.lua
 let g:slime_target = "tmux"
 let g:slime_bracketed_paste = 1
 let g:slime_default_config = { "socket_name": "default", "target_pane": "{right-of}" }
+
+" Debugger
+lua require('dap-python').setup('~/.venvs_global/debugpy/bin/python')
+lua require('dapui').setup()
+" TODO: terminal in debug mode is buggy
+
+lua << EOF
+local dap, dapui = require("dap"), require("dapui")
+dap.listeners.after.event_initialized["dapui_config"] = function()
+  dapui.open()
+end
+dap.listeners.before.event_terminated["dapui_config"] = function()
+  dapui.close()
+end
+dap.listeners.before.event_exited["dapui_config"] = function()
+  dapui.close()
+end
+EOF
+
+nnoremap <silent> <leader>B <cmd>lua require'dap'.set_breakpoint(vim.fn.input('Breakpoint condition: '))<CR>
+nnoremap <silent> <leader>b <cmd>lua require'dap'.toggle_breakpoint()<CR>
+nnoremap <silent> <leader>dc <cmd>lua require'dap'.continue()<CR>
+nnoremap <silent> <leader>sn <cmd>lua require'dap'.step_over()<CR>
+nnoremap <silent> <leader>si <cmd>lua require'dap'.step_into()<CR>
+nnoremap <silent> <leader>se <cmd>lua require'dap'.step_out()<CR>
+nnoremap <silent> <leader>dr <cmd>lua require'dap'.repl.open()<CR>
+nnoremap <silent> <leader>dn :lua require('dap-python').test_method()<CR>
+nnoremap <silent> <leader>df :lua require('dap-python').test_class()<CR>
+vnoremap <silent> <leader>ds <ESC>:lua require('dap-python').debug_selection()<CR>
