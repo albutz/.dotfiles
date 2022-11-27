@@ -52,6 +52,7 @@ Plug 'jpalardy/vim-slime'
 " Debugger
 Plug 'mfussenegger/nvim-dap'
 Plug 'rcarriga/nvim-dap-ui'
+Plug 'theHamsta/nvim-dap-virtual-text'
 Plug 'mfussenegger/nvim-dap-python'
 call plug#end()
 
@@ -84,8 +85,9 @@ let g:slime_default_config = { "socket_name": "default", "target_pane": "{right-
 
 " Debugger
 lua require('dap-python').setup('~/.venvs_global/debugpy/bin/python')
+lua require('nvim-dap-virtual-text').setup()
 lua require('dapui').setup()
-" TODO: terminal in debug mode is buggy
+"PyInt_FromLong not found: https://github.com/microsoft/vscode-python/issues/20253
 
 lua << EOF
 local dap, dapui = require("dap"), require("dapui")
