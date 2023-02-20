@@ -31,7 +31,7 @@ local on_attach = function(client, bufnr)
     keymap("n", "gd", "<cmd>Lspsaga peek_definition<CR>", { silent = true })
 
     -- Show line diagnostics
-    -- keymap("n", "<leader>cd", "<cmd>Lspsaga show_line_diagnostics<CR>", { silent = true })
+    keymap("n", "<leader>sd", "<cmd>Lspsaga show_line_diagnostics<CR>", { silent = true })
 
     -- Show cursor diagnostic
     -- keymap("n", "<leader>cd", "<cmd>Lspsaga show_cursor_diagnostics<CR>", { silent = true })

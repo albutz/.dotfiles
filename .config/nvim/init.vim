@@ -54,6 +54,8 @@ Plug 'mfussenegger/nvim-dap'
 Plug 'rcarriga/nvim-dap-ui'
 Plug 'theHamsta/nvim-dap-virtual-text'
 Plug 'mfussenegger/nvim-dap-python'
+" Python
+Plug 'kkoomen/vim-doge', { 'do': { -> doge#install() } }
 call plug#end()
 
 set completeopt=menu,menuone,noselect
@@ -112,3 +114,6 @@ nnoremap <silent> <leader>dr <cmd>lua require'dap'.repl.open()<CR>
 nnoremap <silent> <leader>dn :lua require('dap-python').test_method()<CR>
 nnoremap <silent> <leader>df :lua require('dap-python').test_class()<CR>
 vnoremap <silent> <leader>ds <ESC>:lua require('dap-python').debug_selection()<CR>
+
+" Docs
+let g:doge_doc_standard_python = 'google'
