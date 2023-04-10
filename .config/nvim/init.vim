@@ -36,7 +36,7 @@ Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'ryanoasis/vim-devicons' " needs to be loaded after nerdtree and lightline.vim
 " Telescope
 Plug 'nvim-lua/plenary.nvim'
-Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.0' }
+Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.1' }
 Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build' }
 " LSP
 Plug 'neovim/nvim-lspconfig'
@@ -57,6 +57,8 @@ Plug 'theHamsta/nvim-dap-virtual-text'
 Plug 'mfussenegger/nvim-dap-python'
 " Python
 Plug 'kkoomen/vim-doge', { 'do': { -> doge#install() } }
+" Git
+Plug 'tpope/vim-fugitive'
 call plug#end()
 
 set completeopt=menu,menuone,noselect
