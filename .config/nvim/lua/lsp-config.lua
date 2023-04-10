@@ -7,7 +7,7 @@ local keymap = vim.keymap.set
 
 local lspconfig = require('lspconfig')
 
-local saga = require('lspsaga')
+local saga = require('lspsaga').setup({})
 
 -- Keymaps
 local on_attach = function(client, bufnr)
@@ -16,22 +16,22 @@ local on_attach = function(client, bufnr)
     -- if there is no implement it will hide
     -- when you use action in finder like open vsplit then you can
     -- use <C-t> to jump back
-    keymap("n", "gr", "<cmd>Lspsaga lsp_finder<CR>", { silent = true })
+    keymap("n", "gr", "<cmd>Lspsaga lsp_finder<CR>")
 
     -- Code action
     -- keymap({"n","v"}, "<leader>ca", "<cmd>Lspsaga code_action<CR>", { silent = true })
 
     -- Rename
-    keymap("n", "<leader>r", "<cmd>Lspsaga rename<CR>", { silent = true })
+    keymap("n", "<leader>r", "<cmd>Lspsaga rename<CR>")
 
     -- Peek Definition
     -- you can edit the definition file in this flaotwindow
     -- also support open/vsplit/etc operation check definition_action_keys
     -- support tagstack C-t jump back
-    keymap("n", "gd", "<cmd>Lspsaga peek_definition<CR>", { silent = true })
+    keymap("n", "gd", "<cmd>Lspsaga goto_definition<CR>")
 
     -- Show line diagnostics
-    keymap("n", "<leader>sd", "<cmd>Lspsaga show_line_diagnostics<CR>", { silent = true })
+    keymap("n", "<leader>sd", "<cmd>Lspsaga show_line_diagnostics<CR>")
 
     -- Show cursor diagnostic
     -- keymap("n", "<leader>cd", "<cmd>Lspsaga show_cursor_diagnostics<CR>", { silent = true })
@@ -49,18 +49,18 @@ local on_attach = function(client, bufnr)
     -- end, { silent = true })
 
     -- Outline
-    keymap("n","<leader>o", "<cmd>LSoutlineToggle<CR>",{ silent = true })
+    keymap("n","<leader>o", "<cmd>LSoutlineToggle<CR>")
 
     -- Hover Doc
-    keymap("n", "K", "<cmd>Lspsaga hover_doc<CR>", { silent = true })
+    keymap("n", "K", "<cmd>Lspsaga hover_doc<CR>")
 
     -- Float terminal
-    keymap("n", "<leader>ot", "<cmd>Lspsaga open_floaterm<CR>", { silent = true })
+    keymap("n", "<leader>ot", "<cmd>Lspsaga open_floaterm<CR>")
     -- if you want pass somc cli command into terminal you can do like this
     -- open lazygit in lspsaga float terminal
     -- keymap("n", "<A-d>", "<cmd>Lspsaga open_floaterm lazygit<CR>", { silent = true })
     -- close floaterm
-    keymap("t", "<leader>ct", [[<C-\><C-n><cmd>Lspsaga close_floaterm<CR>]], { silent = true })
+    keymap("t", "<leader>ct", [[<C-\><C-n><cmd>Lspsaga close_floaterm<CR>]])
 end
 
 for _, lsp in ipairs(servers) do
