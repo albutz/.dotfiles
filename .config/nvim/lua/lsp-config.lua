@@ -1,5 +1,5 @@
 -- Language servers
-local servers = {'pyright', 'gopls', 'bashls'}
+local servers = {'pyright', 'gopls', 'bashls', 'dockerls', 'docker_compose_language_service'}
 
 local capabilities = require('cmp_nvim_lsp').default_capabilities()
 
